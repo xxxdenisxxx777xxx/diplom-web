@@ -1,11 +1,13 @@
 import { Route, Routes } from "react-router-dom"
-import App from "../App";
+import BasePage from "../components/BasePage";
+import Login from "../Login";
 
 
 const AppRouter = () => {
     return (
         <Routes>
-            <Route path="/" index element={<App />} />
+            <Route path="/login" index element={<Login />} />
+            <Route path="/adminpanel" element={<BasePage />} />
 
         </Routes>
     )
