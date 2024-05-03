@@ -13,7 +13,7 @@ function Login() {
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://localhost:3020/api/login', { email: email, password: password }, { headers: { 'Content-Type': 'application/json' } });
+            const response = await axios.post('https://tame-jade-whale-fez.cyclic.app/api/login', { email: email, password: password }, { headers: { 'Content-Type': 'application/json' } });
             if (response.status === 200) {
                 localStorage.setItem('auth', JSON.stringify(response.data.user));
                 setIsAuth(true)
