@@ -4,12 +4,23 @@ import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-ro
 import App from './App';
 import axios from 'axios';
 import BasePage from './components/BasePage';
+import HomePage from './pages/HomePage';
+import AppRouter from './routes/AppRouter';
 
 
-function Login() {
+function Login({ children }) {
     const [isAuth, setIsAuth] = useState(localStorage.getItem('auth'))
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [activeTab, setActiveTab] = useState("/home");
+
+    const handleTabClick = (tab) => {
+        if (activeTab === tab) {
+            setActiveTab(null);
+        } else {
+            setActiveTab(tab);
+        }
+    };
 
     const handleLogin = async () => {
         try {
@@ -38,9 +49,11 @@ function Login() {
 
 
 
+
     return (
         <>
             {isAuth ? <>
+                <Navigate to="/home" replace={true} />
                 <header>
                     <div className="flex flex-row min-h-screen w-full bg-gray-100 text-gray-800">
                         <aside
@@ -54,62 +67,69 @@ function Login() {
                                     </a>
                                 </div>
                             </div>
+
                             <div className="sidebar-content px-4 py-6">
                                 <ul className="flex flex-col w-full">
                                     <li className="my-px">
-                                        <a
-                                            href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-white bg-sky-700 active:text-black"
-                                        >
-                                            <span className="flex items-center justify-center text-lg text-white">
-                                                <svg
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-                                                    />
-                                                </svg>
-                                            </span>
-                                            <span className="ml-3">Головна</span>
-                                        </a>
+                                        <Link to="/home">
+                                            <button
+                                                className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700 "
+                                                onClick={() => handleTabClick("/home")}                                            >
+                                                <span className="flex items-center justify-center text-lg text-inherit">
+                                                    <svg
+                                                        fill="none"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        className="h-6 w-6"
+                                                    >
+                                                        <path
+                                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span className="ml-3">Головна</span>
+                                            </button>
+                                        </Link>
                                     </li>
                                     <li className="my-px">
                                         <span className="flex font-medium text-sm text-inherit px-4 my-4 uppercase">Управління</span>
                                     </li>
-                                    <li className="my-px">
-                                        <a
-                                            href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700 "
-                                        >
-                                            <span className="flex items-center justify-center text-lg text-inherit">
-                                                <svg
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path
-                                                        d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
-                                                    />
-                                                </svg>
-                                            </span>
-                                            <span className="ml-3">Групи</span>
-                                        </a>
-                                    </li>
+
 
                                     <li className="my-px">
-                                        <a
+                                        <Link to="/adminpanel">
+                                            <button
+
+                                                className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700 "
+                                            >
+                                                <span className="flex items-center justify-center text-lg text-inherit">
+                                                    <svg
+                                                        fill="none"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        className="h-6 w-6"
+                                                    >
+                                                        <path
+                                                            d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <span className="ml-3">Групи</span>
+                                            </button>
+                                        </Link>
+                                    </li>
+
+
+                                    <li className="my-px">
+                                        <button
                                             href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
                                             <span className="flex items-center justify-center text-lg text-inherit">
                                                 <svg
@@ -130,10 +150,10 @@ function Login() {
                                             <span
                                                 className="flex items-center justify-center text-xs text-red-500 font-semibold bg-red-100 h-6 px-2 rounded-full ml-auto"
                                             >1k</span>
-                                        </a>
+                                        </button>
                                     </li>
                                     <li className="my-px">
-                                        <a
+                                        <button
                                             href="#"
                                             className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
@@ -154,7 +174,7 @@ function Login() {
                                                 </svg>
                                             </span>
                                             <span className="ml-3">Розклад</span>
-                                        </a>
+                                        </button>
                                     </li>
                                     {/* <li className="my-px">
                                         <a
@@ -179,9 +199,9 @@ function Login() {
                                     </li> */}
 
                                     <li className="my-px">
-                                        <a
+                                        <button
                                             href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
                                             <span className="flex items-center justify-center text-lg text-inherit">
                                                 <svg
@@ -197,12 +217,12 @@ function Login() {
                                                 </svg>
                                             </span>
                                             <span className="ml-3">Викладачі</span>
-                                        </a>
+                                        </button>
                                     </li>
                                     <li className="my-px">
                                         <a
                                             href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
                                             <span className="flex items-center justify-center text-lg text-inherit">
                                                 <svg
@@ -229,9 +249,9 @@ function Login() {
                                         <span className="flex font-medium text-sm text-inherit px-4 my-4 uppercase">Профіль</span>
                                     </li>
                                     <li className="my-px">
-                                        <a
+                                        <button
                                             href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
                                             <span className="flex items-center justify-center text-lg text-inherit">
                                                 <svg
@@ -250,7 +270,7 @@ function Login() {
                                                 </svg>
                                             </span>
                                             <span className="ml-3">Налаштування</span>
-                                        </a>
+                                        </button>
                                     </li>
 
                                     <li className="my-px">
@@ -309,7 +329,7 @@ function Login() {
                                             />
                                         </div>
                                         <div className="flex md:hidden">
-                                            <a href="#" className="flex items-center justify-center h-10 w-10 border-transparent">
+                                            <button href="#" className="flex items-center justify-center h-10 w-10 border-transparent">
                                                 <svg
                                                     className="h-6 w-6 text-gray-500"
                                                     fill="none"
@@ -321,7 +341,7 @@ function Login() {
                                                 >
                                                     <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                                 </svg>
-                                            </a>
+                                            </button>
                                         </div>
                                     </form>
                                     <div className="flex ml-auto">
@@ -340,15 +360,17 @@ function Login() {
                                 </div>
                             </header>
                             <div className="main-content flex flex-col flex-grow p-4">
-                                <h1 className="font-bold text-2xl text-gray-700">Dashboard</h1>
+
 
                                 <div
-                                    className="flex flex-col flex-grow border-4 border-gray-400 border-dashed bg-white rounded mt-4"
-                                ></div>
+                                    className="flex flex-col flex-grow border-4 bg-white rounded-lg "
+                                >
+                                    <AppRouter />
+                                </div>
                             </div>
                             <footer className="footer px-4 py-6">
                                 <div className="footer-content">
-                                    <p className="text-sm text-gray-600 text-center">© StepUniversity2024. All rights reserved.</p>
+                                    <p className="text-sm text-gray-600 text-center mb-2">© StepUniversity2024. All rights reserved.</p>
                                 </div>
                             </footer>
                         </main>
@@ -357,7 +379,7 @@ function Login() {
 
 
 
-                <BasePage /></> : <div className="relative z-50">
+            </> : <div className="relative z-50">
                 <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 " aria-hidden="true">
                     <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" ></div>
                 </div>
@@ -422,7 +444,7 @@ function Login() {
 
 
 
-
+            {children}
         </>
 
     );

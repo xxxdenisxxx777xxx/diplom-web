@@ -1,0 +1,33 @@
+export default function HomePage() {
+    return (
+        <section className="relative isolate overflow-hidden bg-white px-6 py-12 ">
+            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
+            <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+            <div className="mx-auto max-w-2xl lg:max-w-4xl">
+                <div></div>
+                <img className="mx-auto h-[100px]" src="https://schoolnavigator.com.ua/uploads/provider/logo/510/medium_Instagram-%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1080x1080__%D0%BF%D0%B8%D0%BA%D1%81.png" alt="" />
+                <figure className="mt-10">
+                    <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
+                        <p>
+                            Доброго дня, Іванно Володимирівна
+                        </p>
+                    </blockquote>
+                    <figcaption className="mt-10">
+                        <img
+                            className="mx-auto h-[250px] rounded-full"
+                            src="https://github.com/xxxdenisxxx777xxx/eDniproPrct/blob/main/IMG_0796.jpeg?raw=true"
+                            alt=""
+                        />
+                        <div className="mt-9 flex items-center justify-center space-x-3 text-base">
+                            <div className="font-semibold text-gray-900">Навчальна частина</div>
+                            <svg viewBox="0 0 2 2" width={3} height={3} aria-hidden="true" className="fill-gray-900">
+                                <circle cx={1} cy={1} r={1} />
+                            </svg>
+                            <div className="text-gray-600">Завуч</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+    )
+}
