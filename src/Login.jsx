@@ -99,6 +99,22 @@ function Login({ children }) {
                                         </Link>
                                     </li>
                                     <li className="my-px">
+                                        <Link to="/chat">
+                                            <button
+                                                href="#"
+                                                className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            >
+                                                <span className="flex items-center justify-center text-lg text-inherit">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                                    </svg>
+
+                                                </span>
+                                                <span className="ml-3">Повідомлення</span>
+                                            </button>
+                                        </Link>
+                                    </li>
+                                    <li className="my-px">
                                         <span className="flex font-medium text-sm text-inherit px-4 my-4 uppercase">Управління</span>
                                     </li>
 
@@ -159,7 +175,7 @@ function Login({ children }) {
                                     <li className="my-px">
                                         <button
                                             href="#"
-                                            className="flex flex-row items-center h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
                                         >
                                             <span className="flex items-center justify-center text-lg text-inherit">
                                                 <svg
@@ -180,6 +196,7 @@ function Login({ children }) {
                                             <span className="ml-3">Розклад</span>
                                         </button>
                                     </li>
+
                                     {/* <li className="my-px">
                                         <a
                                             href="#"
@@ -252,6 +269,7 @@ function Login({ children }) {
                                     <li className="my-px">
                                         <span className="flex font-medium text-sm text-inherit px-4 my-4 uppercase">Профіль</span>
                                     </li>
+
                                     <li className="my-px">
                                         <button
                                             href="#"
@@ -348,7 +366,12 @@ function Login({ children }) {
                                             </button>
                                         </div>
                                     </form>
-                                    <div className="flex ml-auto">
+
+                                    <div className="flex ml-auto gap-4">
+                                        <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-7 h-7">
+                                            <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                                        </svg>
+                                        </button>
                                         <a href className="flex flex-row items-center">
                                             <img
                                                 src="https://github.com/xxxdenisxxx777xxx/eDniproPrct/blob/main/IMG_0796.jpeg?raw=true"

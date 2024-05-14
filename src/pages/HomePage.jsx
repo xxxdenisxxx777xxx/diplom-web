@@ -9,7 +9,7 @@ export default function HomePage() {
                 <figure className="mt-10">
                     <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
                         <p>
-                            Доброго дня, Іванно Володимирівна
+                            Доброго дня,  Іванно Володимирівна
                         </p>
                     </blockquote>
                     <figcaption className="mt-10">
