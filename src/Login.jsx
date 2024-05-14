@@ -1,9 +1,9 @@
 
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from 'react-router-dom';
 import App from './App';
 import axios from 'axios';
-import BasePage from './components/BasePage';
+import BasePage from './components/DropGroups';
 import HomePage from './pages/HomePage';
 import AppRouter from './routes/AppRouter';
 
@@ -13,6 +13,7 @@ function Login({ children }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [activeTab, setActiveTab] = useState("/home");
+    const navigate = useNavigate();
 
     const handleTabClick = (tab) => {
         if (activeTab === tab) {
@@ -22,12 +23,15 @@ function Login({ children }) {
         }
     };
 
+
+
     const handleLogin = async () => {
         try {
             const response = await axios.post('https://tame-jade-whale-fez.cyclic.app/api/login', { email: email, password: password }, { headers: { 'Content-Type': 'application/json' } });
             if (response.status === 200) {
                 localStorage.setItem('auth', JSON.stringify(response.data.user));
                 setIsAuth(true)
+                navigate('/home');
             } else {
                 alert(response.data.message)
             }
@@ -53,7 +57,7 @@ function Login({ children }) {
     return (
         <>
             {isAuth ? <>
-                <Navigate to="/home" replace={true} />
+
                 <header>
                     <div className="flex flex-row min-h-screen w-full bg-gray-100 text-gray-800">
                         <aside
@@ -100,7 +104,7 @@ function Login({ children }) {
 
 
                                     <li className="my-px">
-                                        <Link to="/adminpanel">
+                                        <Link to="/groups">
                                             <button
 
                                                 className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700 "
@@ -368,11 +372,7 @@ function Login({ children }) {
                                     <AppRouter />
                                 </div>
                             </div>
-                            <footer className="footer px-4 py-6">
-                                <div className="footer-content">
-                                    <p className="text-sm text-gray-600 text-center mb-2">© StepUniversity2024. All rights reserved.</p>
-                                </div>
-                            </footer>
+
                         </main>
                     </div>
                 </header>

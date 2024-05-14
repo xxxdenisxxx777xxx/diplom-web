@@ -1,9 +1,9 @@
 export default function HomePage() {
     return (
-        <section className="relative isolate overflow-hidden bg-white px-6 py-12 ">
+        <section className="relative isolate overflow-hidden bg-white mt-16  ">
             <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20" />
             <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-            <div className="mx-auto max-w-2xl lg:max-w-4xl">
+            <div className="mx-auto max-w-2xl items-center justify-center lg:max-w-4xl">
                 <div></div>
                 <img className="mx-auto h-[100px]" src="https://schoolnavigator.com.ua/uploads/provider/logo/510/medium_Instagram-%D0%BF%D1%83%D0%B1%D0%BB%D0%B8%D0%BA%D0%B0%D1%86%D0%B8%D1%8F_1080x1080__%D0%BF%D0%B8%D0%BA%D1%81.png" alt="" />
                 <figure className="mt-10">
