@@ -1,50 +1,28 @@
-import { Fragment, useState } from 'react'
-import { Listbox, Transition } from '@headlessui/react'
-import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
+import { Fragment } from 'react';
+import { Listbox, Transition } from '@headlessui/react';
+import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
-const people = [
-    {
-        id: 1,
-        name: 'Всі курси',
-    },
-    {
-        id: 2,
-        name: '1 курс',
-        avatar:
-            'https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-        id: 3,
-        name: '2 курс',
-        avatar:
-            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80',
-    },
-    {
-        id: 4,
-        name: '3 курс',
-        avatar:
-            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-    {
-        id: 5,
-        name: '4 курс',
-        avatar:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    },
-
-]
+const groups = [
+    { id: 1, name: 'Всі групи' },
+    { id: 2, name: 'КН 20-1' },
+    { id: 3, name: 'КН 20-2' },
+    { id: 4, name: 'КН 21-1' },
+    { id: 5, name: 'КН 21-2' },
+    { id: 6, name: 'КН 22-1' },
+    { id: 7, name: 'КН 22-2' },
+    { id: 8, name: 'КН 23-1' },
+    { id: 9, name: 'КН 23-2' },
+    { id: 10, name: 'КН 24-1' },
+    { id: 11, name: 'КН 24-2' },
+];
 
 function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
+    return classes.filter(Boolean).join(' ');
 }
 
-export default function DropGroups() {
-    const [selected, setSelected] = useState(people[0])
-
+export default function DropGroups({ selectedGroup, setSelectedGroup }) {
     return (
-
-
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={selectedGroup} onChange={setSelectedGroup}>
             {({ open }) => (
                 <>
                     <div className=''>
@@ -52,13 +30,12 @@ export default function DropGroups() {
                         <div className="relative mt-2">
                             <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-2.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
                                 <span className="flex items-center">
-                                    <span className="ml-3 block truncate">{selected.name}</span>
+                                    <span className="ml-3 block truncate">{selectedGroup}</span>
                                 </span>
                                 <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
                                     <ChevronUpDownIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
                                 </span>
                             </Listbox.Button>
-
                             <Transition
                                 show={open}
                                 as={Fragment}
@@ -67,16 +44,16 @@ export default function DropGroups() {
                                 leaveTo="opacity-0"
                             >
                                 <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                                    {people.map((person) => (
+                                    {groups.map((group) => (
                                         <Listbox.Option
-                                            key={person.id}
+                                            key={group.id}
                                             className={({ active }) =>
                                                 classNames(
                                                     active ? 'bg-indigo-600 text-white' : 'text-gray-900',
                                                     'relative cursor-default select-none py-2 pl-3 pr-9'
                                                 )
                                             }
-                                            value={person}
+                                            value={group.name}
                                         >
                                             {({ selected, active }) => (
                                                 <>
@@ -84,10 +61,9 @@ export default function DropGroups() {
                                                         <span
                                                             className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                                                         >
-                                                            {person.name}
+                                                            {group.name}
                                                         </span>
                                                     </div>
-
                                                     {selected ? (
                                                         <span
                                                             className={classNames(
@@ -109,6 +85,5 @@ export default function DropGroups() {
                 </>
             )}
         </Listbox>
-
-    )
+    );
 }

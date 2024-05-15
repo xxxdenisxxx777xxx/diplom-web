@@ -1,5 +1,5 @@
-import DropGroups from "../components/DropGroups"
-import { PlusIcon } from '@heroicons/react/20/solid'
+import DropCourse from "../components/DropCourse"
+
 
 export default function GroupsPage() {
     return (
@@ -7,7 +7,7 @@ export default function GroupsPage() {
             <div className="p-10 ">
                 <div className="flex items-center justify-between gap-5">
                     <div className="w-full">
-                        <DropGroups />
+                        <DropCourse />
                     </div>
 
                 </div>
