@@ -224,25 +224,27 @@ function Login({ children }) {
                                     </li> */}
 
                                     <li className="my-px">
-                                        <button
-                                            href="#"
-                                            className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
-                                        >
-                                            <span className="flex items-center justify-center text-lg text-inherit">
-                                                <svg
-                                                    fill="none"
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                    className="h-6 w-6"
-                                                >
-                                                    <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                                                </svg>
-                                            </span>
-                                            <span className="ml-3">Викладачі</span>
-                                        </button>
+                                        <Link to="/teachers">
+                                            <button
+                                                href="#"
+                                                className="flex flex-row items-center w-full h-10 px-3 rounded-lg text-inherit hover:bg-gray-100 hover:text-gray-700"
+                                            >
+                                                <span className="flex items-center justify-center text-lg text-inherit">
+                                                    <svg
+                                                        fill="none"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                        className="h-6 w-6"
+                                                    >
+                                                        <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                    </svg>
+                                                </span>
+                                                <span className="ml-3">Викладачі</span>
+                                            </button>
+                                        </Link>
                                     </li>
                                     <li className="my-px">
                                         <a

@@ -6,6 +6,7 @@ import GroupsPage from "../pages/GroupsPage";
 import ChatPage from "../pages/ChatPage";
 import StudentPage from "../pages/StudentPage";
 import ScheduleComponents from "../components/ScheduleComponents";
+import TeacherPage from "../pages/TeacherPage";
 
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
             <Route path="/chat" element={<ChatPage />} />
             <Route path="/students" element={<StudentPage />} />
             <Route path="/schedule" element={<ScheduleComponents />} />
+            <Route path="/teachers" element={<TeacherPage />} />
         </Routes>
     )
 }
